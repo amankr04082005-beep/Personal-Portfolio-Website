@@ -176,7 +176,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; }
 .about-text p { color: var(--ink-soft); margin-bottom: 1rem; max-width: 50ch; }
-.about-experience h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+.about-education h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
 .xp-item { margin-bottom: 1.5rem; }
 .xp-head { display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 600; }
 .xp-period { color: var(--ink-soft); font-weight: 400; }

@@ -1,12 +1,12 @@
 # Aman Kumar — Portfolio Website
 
-A personal portfolio site: projects, skills, experience, and a contact form that saves messages to a database.
+A personal portfolio site: projects, skills, education, achievements, and a contact form that saves messages to a database.
 
 **Live demo:** _add your deployed link here_
 
 ## Features
 - Project showcase with tech stack tags and links to live demos / GitHub
-- Skills, experience, and certifications sections
+- Skills, education, achievements, and certifications sections
 - Contact form backed by a real API — messages are saved to MongoDB, not just emailed
 - Basic spam protection: a simple per-IP rate limit on the contact endpoint
 
@@ -49,7 +49,7 @@ Open http://localhost:5174. The API runs on http://localhost:5100.
 | GET | /api/contact | List saved messages (for the site owner) |
 
 ## Note on content
-All project, skill, and experience content lives in `client/src/data.js` — edit that one file to update the site.
+Profile, project, skill, education, certification, and achievement content lives in `client/src/data.js` — edit that one file to update the site.
 
 ## Note on the GET /api/contact endpoint
 It currently has no authentication, so anyone who knows the URL can read submitted messages. That's fine for local development and a portfolio demo, but before relying on it for real messages, add a simple auth check (e.g. an admin password or JWT) before deploying publicly with real visitor data.
