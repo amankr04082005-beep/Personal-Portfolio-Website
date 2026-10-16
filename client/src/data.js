@@ -2,7 +2,7 @@ export const profile = {
   name: "Aman Kumar",
   role: "Software Engineer",
   tagline:
-    "Software Engineer focused on building scalable web applications, APIs, and data-driven products — from problem framing to deployment, with a strong emphasis on clean architecture and maintainable code.",
+    "Entry-level Software Engineer who builds and deploys full-stack apps and REST APIs with React, Node.js, FastAPI and PostgreSQL, with a strong base in DSA, OOP and DBMS.",
   location: "Bengaluru, India",
   email: "amankumar04082005@gmail.com",
   phone: "+91 6200428363",
@@ -13,82 +13,98 @@ export const profile = {
 };
 
 export const skills = [
-  {
-    group: "Languages",
-    items: ["Python", "JavaScript", "SQL"],
-  },
-  {
-    group: "Frontend",
-    items: ["React", "HTML5", "CSS3", "Responsive UI"],
-  },
-  {
-    group: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "FastAPI", "Flask"],
-  },
-  {
-    group: "Databases",
-    items: ["MongoDB", "MySQL", "PostgreSQL", "Schema Design"],
-  },
-  {
-    group: "Core CS",
-    items: ["Data Structures & Algorithms", "OOP", "DBMS", "System Design Basics"],
-  },
-  {
-    group: "Tools",
-    items: ["Git/GitHub", "JWT Auth", "Postman", "Deployment"],
-  },
+  { group: "Languages", items: ["Python", "JavaScript", "SQL"] },
+  { group: "Frontend", items: ["React", "HTML5", "CSS3", "Responsive UI"] },
+  { group: "Backend", items: ["Node.js", "Express", "REST APIs", "FastAPI", "Flask", "SQLAlchemy"] },
+  { group: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite", "Schema Design"] },
+  { group: "Core CS", items: ["Data Structures & Algorithms", "OOP", "DBMS"] },
+  { group: "Tools", items: ["Git/GitHub", "Docker", "pytest", "JWT Auth", "Render", "Vercel"] },
 ];
 
 export const projects = [
   {
-    name: "Job Application Tracker",
-    period: "2026",
+    name: "URL Shortener API",
+    period: "Oct 2026",
     description:
-      "Built a full-stack job application manager to help users organize applications, track their pipeline, and manage data through a clean dashboard experience.",
+      "A REST API that shortens URLs, redirects short codes to the original link, and tracks click statistics, backed by PostgreSQL.",
     highlights: [
-      "Implemented secure user authentication using JWT and bcrypt to isolate each user's data and protect access",
-      "Designed a REST API for application CRUD operations, status filtering, and search-driven workflow tracking",
-      "Deployed the product with MongoDB Atlas, Vercel, and Render to deliver a working end-to-end system",
+      "Built with FastAPI and SQLAlchemy; 2-table schema (urls, clicks) with a unique index on the short code and an indexed foreign key",
+      "Click counts use atomic SQL increments so concurrent requests do not lose updates",
+      "Random base62 codes with collision retry, validated custom aliases, 409 on duplicates, and 10 pytest tests",
+      "Containerized with Docker and deployed on Render with a Neon PostgreSQL database",
+    ],
+    stack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Docker", "pytest"],
+    github: "https://github.com/amankr04082005-beep/url-shortener",
+    live: "https://url-shortener-5g04.onrender.com/docs",
+  },
+  {
+    name: "Job Application Tracker",
+    period: "Oct 2026",
+    description:
+      "A full-stack app to organize job applications, track the pipeline, and manage data through a clean dashboard.",
+    highlights: [
+      "9 REST API endpoints for authentication and CRUD, with status filtering and company/role search",
+      "JWT authentication (7-day expiry) with bcrypt hashing; each user can access only their own jobs",
+      "MongoDB aggregation endpoint powering a status pipeline dashboard (Applied, Interview, Offer, Rejected)",
+      "Deployed on Vercel (frontend), Render (backend) and MongoDB Atlas",
     ],
     stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     github: "https://github.com/amankr04082005-beep/job-tracker",
     live: "https://job-tracker-one-taupe.vercel.app",
   },
   {
+    name: "Mini Search Engine",
+    period: "Oct 2026",
+    description:
+      "A search engine that builds an inverted index over documents and ranks results by TF-IDF relevance.",
+    highlights: [
+      "Smoothed TF-IDF ranking with a tokenizer that lowercases text and removes stopwords",
+      "2-table SQLite schema (documents, inverted_index) with an index on the word column",
+      "4 Flask API endpoints and a web UI; newly added documents are searchable immediately",
+      "Deployed live on Render",
+    ],
+    stack: ["Python", "Flask", "SQLite", "TF-IDF"],
+    github: "https://github.com/amankr04082005-beep/mini-search-engine",
+    live: "https://mini-search-engine-5k3o.onrender.com",
+  },
+  {
+    name: "In-Memory Key-Value Store",
+    period: "Oct 2026",
+    description:
+      "A Redis-like in-memory store written in Python with key expiry and LRU eviction.",
+    highlights: [
+      "SET, GET, DELETE, EXISTS and KEYS in O(1) average time using a hash map and OrderedDict",
+      "Lazy TTL expiry and O(1) LRU eviction (move_to_end, popitem) with a capacity limit",
+      "Command-line interface and 5 unit tests, all passing",
+    ],
+    stack: ["Python", "OOP", "OrderedDict", "Unit Testing"],
+    github: "https://github.com/amankr04082005-beep/kv-store",
+  },
+  {
+    name: "Client Lead Management System (Mini CRM)",
+    period: "Oct 2026",
+    description:
+      "A CRM to manage client leads through a status pipeline, with follow-up notes and a stats dashboard.",
+    highlights: [
+      "Lead pipeline (New, Contacted, Converted, Lost) with search, filter and per-lead follow-up notes",
+      "Admin access secured with JWT authentication",
+      "Deployed on Vercel (frontend) and Render (backend)",
+    ],
+    stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    github: "https://github.com/amankr04082005-beep/mini-crm",
+    live: "https://mini-irr1pwwfq-newzenexperts-solution.vercel.app",
+  },
+  {
     name: "MediFlow",
     period: "2026",
     description:
-      "Developed a healthcare appointment platform focused on coordinating patient, doctor, and admin workflows in a single system.",
+      "A healthcare platform focused on coordinating patient, doctor, and admin workflows in a single system.",
     highlights: [
-      "Built role-specific interfaces for patients, doctors, and administrators to streamline operations",
+      "Role-specific interfaces for patients, doctors, and administrators to streamline operations",
       "Modeled appointment workflows and consultation records to improve scheduling and information flow",
     ],
-    stack: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/amankr04082005-beep",
-  },
-  {
-    name: "Conversational AI Chatbot",
-    period: "2025",
-    description:
-      "Created an intent-classification chatbot using classical NLP techniques to understand user requests and respond appropriately without relying on a hosted AI service.",
-    highlights: [
-      "Built a Naive Bayes-based classifier achieving 85%+ accuracy on a defined intent dataset",
-      "Implemented the model and response pipeline through a lightweight Flask backend for simple deployment",
-    ],
-    stack: ["Python", "Flask", "scikit-learn", "NLTK"],
-    github: "https://github.com/amankr04082005-beep",
-  },
-  {
-    name: "Cryptocurrency Time-Series Forecasting",
-    period: "2025",
-    description:
-      "Built a forecasting model to predict next-day directional movement in BTC and ETH using historical OHLCV market data and feature engineering.",
-    highlights: [
-      "Achieved 78% directional accuracy on held-out test data using structured time-series features",
-      "Applied preprocessing and feature engineering across price, volume, and trend-based indicators",
-    ],
-    stack: ["Python", "Pandas", "scikit-learn"],
-    github: "https://github.com/amankr04082005-beep",
+    stack: ["React", "Node.js", "MongoDB", "FastAPI"],
+    github: "https://github.com/amankr04082005-beep/Hospital-manegment-system",
   },
 ];
 
@@ -114,16 +130,16 @@ export const experience = [
 ];
 
 export const certifications = [
-  { name: "Problem Solving (Intermediate)", issuer: "HackerRank" },
+  { name: "Problem Solving (Intermediate)", issuer: "HackerRank, 2026" },
+  { name: "Python with DSA", issuer: "Unstop, 2026" },
+  { name: "GitHub Workflow Mastery", issuer: "2026" },
   { name: "Data Structures and Algorithms", issuer: "GeeksforGeeks" },
-  { name: "Python with DSA", issuer: "Unstop" },
   { name: "Google Data Analytics Professional Certificate", issuer: "Coursera, 2024" },
   { name: "Microsoft Power BI Data Analyst Associate", issuer: "Microsoft Learn, 2024" },
 ];
 
 export const achievements = [
-  "3rd rank, Coding and Debugging Competition",
-  "Volunteered at an IT fest, coordinating event logistics",
-  "Participated in NSS's \"Walk to EmpowHER\" women-empowerment initiative",
-  "Participated in Hindustan Scouts and Guides Association activities",
+  "3rd rank in Coding and Debugging Competition (3-member team), IT Fest 2024, Acharya Institute of Graduate Studies",
+  "Volunteered at IT Quiz 2024, supporting event coordination",
+  "Participated in NSS's \"Walk to EmpowHER\" women-empowerment initiative, 2024",
 ];
