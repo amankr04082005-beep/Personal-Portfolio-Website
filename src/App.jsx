@@ -12,6 +12,7 @@ import CursorCat from "./Components/CursorCat";
 import { playSound } from "./utils/soundEffects";
 import { projects } from "./data/projectsData";
 import { Command, FileText, Send, ShieldCheck, Volume2, VolumeX } from "lucide-react";
+import profileImage from "../assets/profile/self image.jpeg";
 
 const skillsGroups = [
   {
@@ -438,12 +439,13 @@ function PortfolioHome({
             <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
 
             <div className="mb-8 flex items-start justify-between">
-              {/* Profile placeholder without personal photo */}
               <div className="relative group">
                 <div className="absolute -inset-1 rounded-[30px] bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 opacity-75 blur-md transition duration-500 group-hover:opacity-100 group-hover:blur-lg" />
-                <div className="relative grid h-44 w-44 place-items-center rounded-[26px] border-2 border-white/20 bg-slate-900 text-4xl font-black text-emerald-300 shadow-2xl transition duration-300 group-hover:scale-[1.02]">
-                  AK
-                </div>
+                <img
+                  src={profileImage}
+                  alt="Aman Kumar"
+                  className="relative h-44 w-44 rounded-[26px] border-2 border-white/20 object-cover object-top shadow-2xl transition duration-300 group-hover:scale-[1.02]"
+                />
               </div>
 
               <div className="mt-3 text-emerald-400 animate-pulse">
