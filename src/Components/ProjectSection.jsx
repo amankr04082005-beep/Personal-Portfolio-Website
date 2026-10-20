@@ -12,9 +12,8 @@ export default function ProjectSection({ onOpenShare }) {
         selectedCategory === "All" ||
         project.category === selectedCategory ||
         (selectedCategory === "Full-Stack" && project.stack.includes("React") && project.stack.includes("Node.js")) ||
-        (selectedCategory === "AI & Python" && (project.stack.includes("Python") || project.stack.includes("FastAPI") || project.stack.includes("ML"))) ||
-        (selectedCategory === "Cloud & DevOps" && (project.stack.includes("Docker") || project.stack.includes("AWS") || project.stack.includes("CI/CD"))) ||
-        (selectedCategory === "Blockchain" && (project.stack.includes("Polygon") || project.stack.includes("IPFS")));
+        (selectedCategory === "Python" && project.stack.includes("Python")) ||
+        (selectedCategory === "Backend" && project.stack.includes("FastAPI"));
 
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
@@ -42,7 +41,7 @@ export default function ProjectSection({ onOpenShare }) {
             </h2>
           </div>
           <p className="mt-3 text-[1.05rem] text-[var(--color-section-muted)]">
-            Full-stack, Cloud, AI & Blockchain products built from scratch with interactive detailed walkthroughs.
+            Full-stack web applications and backend services built with the technologies in my resume.
           </p>
         </div>
 
@@ -53,7 +52,7 @@ export default function ProjectSection({ onOpenShare }) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search projects or tech (e.g. React, Docker)..."
+            placeholder="            Search projects or tech (e.g. React, FastAPI)..."
             className="w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] py-3 pl-11 pr-10 text-sm text-[var(--color-text)] placeholder-[var(--color-section-muted)] outline-none transition focus:border-emerald-500/50 focus:ring-2 focus:ring-emerald-500/20"
           />
           {searchQuery && (

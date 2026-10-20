@@ -1,9 +1,8 @@
-﻿export const projectCategories = [
+export const projectCategories = [
   "All",
   "Full-Stack",
-  "AI & Python",
-  "Cloud & DevOps",
-  "Blockchain",
+  "Python",
+  "Backend",
 ];
 
 export const projects = [
@@ -34,10 +33,10 @@ export const projects = [
     role: "Full-stack developer",
     demoType: "dashboard",
     demoTitle: "Application Pipeline Overview",
-    demoSnippet: `User: aman@portfolio.dev
-Auth: JWT (7-day expiry)
-Status Pipeline: Applied → Interview → Offer → Rejected
-MongoDB Aggregation: 18 total applications | 5 interviews | 2 offers`,
+    demoSnippet: `Authentication: JWT with 7-day expiry
+Password storage: bcrypt hashing
+Status pipeline: Applied -> Interview -> Offer -> Rejected
+REST API endpoints: 9`,
     architecture: [
       { step: "1. Authentication", detail: "Secure login and user-scoped access using JWT and bcrypt", tech: "Node.js / JWT / bcrypt" },
       { step: "2. Job CRUD APIs", detail: "Create, edit, delete, and fetch only the user’s job records", tech: "Express / MongoDB" },
@@ -50,7 +49,7 @@ MongoDB Aggregation: 18 total applications | 5 interviews | 2 offers`,
     title: "Mini Search Engine",
     period: "Oct 2026",
     subtitle: "Python search engine with inverted index ranking",
-    category: "AI & Python",
+    category: "Python",
     summary:
       "A lightweight Python search engine that tokenizes documents, indexes terms using an inverted index, and ranks results with smoothed TF-IDF scoring.",
     videoUrl: "",
@@ -72,10 +71,9 @@ MongoDB Aggregation: 18 total applications | 5 interviews | 2 offers`,
     role: "Python backend engineer",
     demoType: "terminal",
     demoTitle: "Search Result Ranking",
-    demoSnippet: `Query: "python flask api"
-Top Match: Document 4 (score: 0.921)
-Next Match: Document 2 (score: 0.764)
-Median query latency: < 1ms locally`,
+    demoSnippet: `Seeded documents: 10
+Median ranked-query time: under 1 ms locally
+New documents: indexed immediately`,
     architecture: [
       { step: "1. Tokenization", detail: "Lowercases and removes stopwords before indexing content", tech: "Python / NLP" },
       { step: "2. Inverted Index", detail: "Maps each term to the documents containing it for rapid lookup", tech: "Data Structures / SQLite" },
@@ -88,7 +86,7 @@ Median query latency: < 1ms locally`,
     title: "URL Shortener API",
     period: "Oct 2026",
     subtitle: "FastAPI URL shortener with analytics",
-    category: "Cloud & DevOps",
+    category: "Backend",
     summary:
       "A production-ready URL shortener built in FastAPI that shortens URLs, redirects short codes, and tracks click analytics with PostgreSQL and Docker deployment.",
     videoUrl: "",
@@ -110,9 +108,9 @@ Median query latency: < 1ms locally`,
     role: "Backend developer",
     demoType: "terminal",
     demoTitle: "Short-link Redirect Workflow",
-    demoSnippet: `POST /shorten -> { "url": "https://example.com" }
-Response: { "short_code": "a7K9mQ", "short_url": "https://short.ly/a7K9mQ" }
-Redirect: GET /a7K9mQ -> 307 Temporary Redirect -> original URL`,
+    demoSnippet: `Generated short codes: random 6-character Base62
+Redirect response: HTTP 307 Temporary Redirect
+Custom aliases: validated; duplicates return HTTP 409`,
     architecture: [
       { step: "1. URL Validation", detail: "Validates destination URLs and custom aliases before insert", tech: "FastAPI / Pydantic" },
       { step: "2. Short-code Generation", detail: "Generates random 6-character base62 IDs with retry-on-collision logic", tech: "Python / SQL" },

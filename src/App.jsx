@@ -1,70 +1,86 @@
 import { useEffect, useMemo, useState } from "react";
-import GitHubActivitySection from "./Components/GitHubActivitySection";
-import EngineeringMetrics from "./Components/EngineeringMetrics";
 import ProjectSection from "./Components/ProjectSection";
 import ProjectDetailPage from "./Components/ProjectDetailPage";
-import Timeline from "./Components/Timeline";
 import CommandPalette from "./Components/CommandPalette";
 import ContactModal from "./Components/ContactModal";
 import ResumeModal from "./Components/ResumeModal";
 import CredentialModal from "./Components/CredentialModal";
 import ProjectShareModal from "./Components/ProjectShareModal";
-import TerminalModal from "./Components/TerminalModal";
-import RecruiterCardModal from "./Components/RecruiterCardModal";
-import PortfolioAiWidget from "./Components/PortfolioAiWidget";
-import MobileBottomNav from "./Components/MobileBottomNav";
 import Toast from "./Components/Toast";
 import CursorGlow from "./Components/CursorGlow";
 import CursorCat from "./Components/CursorCat";
 import { playSound } from "./utils/soundEffects";
 import { projects } from "./data/projectsData";
-import { Command, FileText, Send, Sparkles, Terminal as TerminalIcon, ShieldCheck, Volume2, VolumeX } from "lucide-react";
+import { Command, FileText, Send, ShieldCheck, Volume2, VolumeX } from "lucide-react";
 
 const skillsGroups = [
   {
     title: "Languages",
     items: [
-      { name: "Java", iconSrc: "https://cdn.simpleicons.org/openjdk" },
       { name: "Python", iconSrc: "https://cdn.simpleicons.org/python" },
       { name: "JavaScript", iconSrc: "https://cdn.simpleicons.org/javascript" },
+      { name: "SQL" },
     ],
   },
   {
-    title: "Frameworks",
+    title: "Frontend",
     items: [
       { name: "React", iconSrc: "https://cdn.simpleicons.org/react" },
-      { name: "Node.js", iconSrc: "https://cdn.simpleicons.org/nodedotjs" },
-      { name: "Express", iconSrc: "https://cdn.simpleicons.org/express" },
-      { name: "FastAPI", iconSrc: "https://cdn.simpleicons.org/fastapi" },
     ],
   },
   {
-    title: "Cloud & DevOps",
+    title: "Backend",
     items: [
-      { name: "AWS", iconSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-      { name: "Docker", iconSrc: "https://cdn.simpleicons.org/docker" },
+      { name: "Node.js", iconSrc: "https://cdn.simpleicons.org/nodedotjs" },
+      { name: "Express.js", iconSrc: "https://cdn.simpleicons.org/express" },
+      { name: "Flask" },
+      { name: "FastAPI", iconSrc: "https://cdn.simpleicons.org/fastapi" },
+      { name: "SQLAlchemy" },
     ],
   },
   {
-    title: "Tools",
+    title: "Databases",
+    items: [
+      { name: "MongoDB", iconSrc: "https://cdn.simpleicons.org/mongodb" },
+      { name: "MySQL", iconSrc: "https://cdn.simpleicons.org/mysql" },
+      { name: "PostgreSQL" },
+      { name: "SQLite" },
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    items: [
+      { name: "Docker", iconSrc: "https://cdn.simpleicons.org/docker" },
+      { name: "Render" },
+      { name: "Vercel" },
+      { name: "MongoDB Atlas" },
+      { name: "Neon" },
+    ],
+  },
+  {
+    title: "Developer Tools",
     items: [
       { name: "Git", iconSrc: "https://cdn.simpleicons.org/git" },
       { name: "GitHub", iconSrc: "https://cdn.simpleicons.org/github" },
-      { name: "Linux (Ubuntu)", iconSrc: "https://cdn.simpleicons.org/ubuntu" },
-      { name: "VS Code", iconSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-      { name: "LaTeX", iconSrc: "https://cdn.simpleicons.org/latex" },
-      { name: "Postman", iconSrc: "https://cdn.simpleicons.org/postman" },
+      { name: "REST API Development" },
+      { name: "JWT" },
+      { name: "pytest" },
+      { name: "Unit Testing" },
     ],
   },
   {
-    title: "Networking & Databases",
+    title: "Core CS",
     items: [
-      { name: "TCP/IP" },
-      { name: "HTTP/HTTPS" },
-      { name: "DNS" },
-      { name: "Computer Networks" },
-      { name: "MySQL", iconSrc: "https://cdn.simpleicons.org/mysql" },
-      { name: "MongoDB", iconSrc: "https://cdn.simpleicons.org/mongodb" },
+      { name: "Data Structures & Algorithms" },
+      { name: "Object-Oriented Programming" },
+      { name: "DBMS" },
+    ],
+  },
+  {
+    title: "Soft Skills",
+    items: [
+      { name: "Team Collaboration" },
+      { name: "Communication" },
     ],
   },
 ];
@@ -75,35 +91,24 @@ const achievementsData = [
     issuer: "IT Fest 2024, Acharya Institute of Graduate Studies",
     date: "2024",
     icon: "🏆",
-    description: "Secured 3rd rank in a coding and debugging competition as part of a 3-member team, showcasing strong problem-solving and collaborative execution.",
-    skills: ["Problem Solving", "Debugging", "Teamwork", "Competitive Coding"],
+    description: "Secured 3rd rank as part of a 3-member team at the coding and debugging competition.",
+    skills: ["Coding", "Debugging", "Team Collaboration"],
   },
   {
-    title: "Problem Solving (Intermediate)",
-    issuer: "HackerRank",
-    date: "2026",
-    icon: "💻",
-    description: "Earned HackerRank Problem Solving (Intermediate) certification, demonstrating strong fundamentals in algorithmic thinking and coding logic.",
-    skills: ["Python", "Algorithms", "Data Structures", "Coding"],
-    link: "#",
+    title: "Volunteer, IT Quiz",
+    issuer: "Acharya Institute of Graduate Studies",
+    date: "2024",
+    icon: "🤝",
+    description: "Supported event coordination for the 2024 IT Quiz.",
+    skills: ["Volunteering", "Event Coordination"],
   },
   {
-    title: "Python with DSA",
-    issuer: "Unstop",
-    date: "2026",
-    icon: "🐍",
-    description: "Completed Python with DSA training focused on core data structures, algorithmic thinking, and practical coding patterns.",
-    skills: ["Python", "DSA", "OOP", "Programming"],
-    link: "#",
-  },
-  {
-    title: "GitHub Workflow Mastery",
-    issuer: "GitHub",
-    date: "2026",
-    icon: "🚀",
-    description: "Built hands-on workflow fluency with version control, collaboration, and repository practices using Git and GitHub.",
-    skills: ["Git", "GitHub", "Version Control", "Collaboration"],
-    link: "#",
+    title: "NSS Walk to EmpowHER",
+    issuer: "Acharya Institute of Graduate Studies",
+    date: "2024",
+    icon: "🌱",
+    description: "Participated in the NSS women empowerment initiative.",
+    skills: ["NSS", "Community Participation"],
   },
 ];
 
@@ -113,27 +118,24 @@ const certificatesData = [
     issuer: "HackerRank",
     date: "2026",
     icon: "🎓",
-    description: "Recognized for intermediate-level problem-solving skills in coding challenges and analytical thinking.",
+    description: "Problem Solving (Intermediate) certification.",
     skills: ["Problem Solving", "Algorithms", "Coding"],
-    link: "#",
   },
   {
     title: "Python with DSA",
     issuer: "Unstop",
     date: "2026",
     icon: "📜",
-    description: "Completed a structured Python and DSA learning path focused on logic building and applied data structures.",
+    description: "Python with DSA certification.",
     skills: ["Python", "DSA", "Programming"],
-    link: "#",
   },
   {
     title: "GitHub Workflow Mastery",
     issuer: "GitHub",
     date: "2026",
     icon: "🤖",
-    description: "Validated understanding of GitHub workflow practices, branching, pull requests, and repository management workflows.",
+    description: "GitHub Workflow Mastery certification.",
     skills: ["GitHub", "Version Control", "Collaboration"],
-    link: "#",
   },
 ];
 
@@ -144,20 +146,14 @@ const profileLinks = [
   { label: "Phone", href: "tel:+916200428363" },
 ];
 
-const heroRoles = ["Software Engineer", "Full Stack Developer", "Python Developer"];
-
 function App() {
   const [time, setTime] = useState("");
   const [route, setRoute] = useState(getRouteFromHash);
-  const [heroRoleIndex, setHeroRoleIndex] = useState(0);
 
   // Modals & Popups State
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-  const [isRecruiterCardOpen, setIsRecruiterCardOpen] = useState(false);
-  const [isAiWidgetOpen, setIsAiWidgetOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [selectedCredential, setSelectedCredential] = useState(null);
   const [selectedShareProject, setSelectedShareProject] = useState(null);
@@ -194,13 +190,6 @@ function App() {
     window.addEventListener("click", handleGlobalClick);
     return () => window.removeEventListener("click", handleGlobalClick);
   }, [soundEnabled]);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setHeroRoleIndex((currentIndex) => (currentIndex + 1) % heroRoles.length);
-    }, 2200);
-    return () => window.clearInterval(intervalId);
-  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -277,25 +266,6 @@ function App() {
         onShowToast={showToastNotification}
       />
 
-      <TerminalModal
-        isOpen={isTerminalOpen}
-        onClose={() => setIsTerminalOpen(false)}
-        onOpenContact={() => setIsContactOpen(true)}
-      />
-
-      <RecruiterCardModal
-        isOpen={isRecruiterCardOpen}
-        onClose={() => setIsRecruiterCardOpen(false)}
-        onShowToast={showToastNotification}
-        onOpenResume={() => setIsResumeOpen(true)}
-      />
-
-      <PortfolioAiWidget
-        isOpen={isAiWidgetOpen}
-        onClose={() => setIsAiWidgetOpen(false)}
-        onOpenContact={() => setIsContactOpen(true)}
-      />
-
       <CredentialModal
         credential={selectedCredential}
         onClose={() => setSelectedCredential(null)}
@@ -344,7 +314,7 @@ function App() {
             setSoundEnabled(next);
             if (next) playSound("success", true);
           }}
-          heroRole={heroRoles[heroRoleIndex]}
+          heroRole="Software Engineer"
           onOpenCommand={() => {
             playSound("click", soundEnabled);
             setIsCommandOpen(true);
@@ -356,18 +326,6 @@ function App() {
           onOpenResume={() => {
             playSound("click", soundEnabled);
             setIsResumeOpen(true);
-          }}
-          onOpenTerminal={() => {
-            playSound("terminal", soundEnabled);
-            setIsTerminalOpen(true);
-          }}
-          onOpenRecruiterCard={() => {
-            playSound("pop", soundEnabled);
-            setIsRecruiterCardOpen(true);
-          }}
-          onOpenAiWidget={() => {
-            playSound("pop", soundEnabled);
-            setIsAiWidgetOpen(true);
           }}
           onOpenCredential={(cred) => {
             playSound("click", soundEnabled);
@@ -393,9 +351,6 @@ function PortfolioHome({
   onOpenCommand,
   onOpenContact,
   onOpenResume,
-  onOpenTerminal,
-  onOpenRecruiterCard,
-  onOpenAiWidget,
   onOpenCredential,
   onOpenShare,
 }) {
@@ -413,20 +368,11 @@ function PortfolioHome({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            <span>Open for Full-Stack, Cloud & AI Engineering Roles</span>
+            <span>Seeking an Entry-Level Software Engineer Role</span>
           </div>
 
           {/* Header Action Controls */}
           <div className="flex flex-wrap items-center gap-2.5">
-            {/* Terminal CLI Easter Egg Trigger */}
-            <button
-              onClick={onOpenTerminal}
-              className="inline-flex items-center gap-2 rounded-2xl border border-yellow-400/50 bg-yellow-400/10 px-4 py-2.5 text-xs font-mono font-extrabold text-yellow-400 shadow-[0_0_20px_rgba(234,179,8,0.2)] transition hover:-translate-y-0.5 hover:bg-yellow-400/20"
-            >
-              <TerminalIcon className="h-4 w-4 text-yellow-400" />
-              <span>AMAN_TERM.EXE</span>
-            </button>
-
             {/* Command Palette Button */}
             <button
               onClick={onOpenCommand}
@@ -446,14 +392,6 @@ function PortfolioHome({
             >
               <FileText className="h-4 w-4 text-amber-400" />
               <span>Resume</span>
-            </button>
-
-            {/* Recruiter Card Trigger */}
-            <button
-              onClick={onOpenRecruiterCard}
-              className="inline-flex items-center gap-2 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-2.5 text-xs font-extrabold text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)] transition hover:-translate-y-0.5 hover:bg-emerald-500/20"
-            >
-              <span>📱 QR & Cheat Sheet</span>
             </button>
 
             {/* Sound Effects Toggle Button */}
@@ -518,7 +456,7 @@ function PortfolioHome({
             </h2>
 
             <p className="max-w-[760px] text-[1.08rem] leading-[2.15rem] text-[var(--color-body)] transition-colors duration-300">
-              BCA graduate (CGPA 8.4) with hands-on experience building full-stack web applications using React, Node.js, Express, MongoDB, Python, Flask, REST APIs, and JWT authentication. I enjoy building practical products, secure backend systems, and deployment-ready features that solve real-world problems.
+              BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python, and Flask, along with REST APIs and JWT authentication. Strong foundation in DSA, OOP, and DBMS; seeking an entry-level Software Engineer role.
             </p>
 
             {/* Quick Hero Key Stats Bar */}
@@ -588,22 +526,28 @@ function PortfolioHome({
           </article>
         </section>
 
-        {/* GitHub Activity Heatmap */}
-        <GitHubActivitySection />
-
-        {/* Engineering System Metrics */}
-        <EngineeringMetrics />
-
         {/* Filterable Projects Section */}
         <ProjectSection onOpenShare={onOpenShare} />
 
-        {/* Interactive Milestone Timeline */}
-        <Timeline />
+        <section className="mt-24 rounded-[30px] border border-[var(--color-border)] bg-[var(--color-card)] p-7 shadow-[var(--shadow-card)]">
+          <p className="mb-3 text-[0.8rem] font-bold tracking-[0.22em] uppercase text-[var(--color-section-muted)]">
+            Education
+          </p>
+          <h2 className="text-2xl font-bold text-[var(--color-text)]">
+            Bachelor of Computer Applications (BCA)
+          </h2>
+          <p className="mt-1 text-sm font-semibold text-emerald-400">
+            Acharya Institute of Graduate Studies, Bengaluru · 2023–2026
+          </p>
+          <p className="mt-2 text-sm text-[var(--color-body)]">
+            CGPA: 8.4 / 10
+          </p>
+        </section>
 
         {/* Achievements & Certifications Modals Grid */}
         <section className="mt-24 grid gap-6 md:grid-cols-2">
           <InteractivePanel
-            title="Achievements & Awards"
+            title="Achievements & Extracurriculars"
             items={achievementsData}
             onOpenCredential={onOpenCredential}
           />
@@ -617,39 +561,8 @@ function PortfolioHome({
         <Footer
           onOpenResume={onOpenResume}
           onOpenContact={onOpenContact}
-          onOpenRecruiterCard={onOpenRecruiterCard}
-          onOpenAiWidget={onOpenAiWidget}
         />
       </main>
-
-      {/* Floating Bottom Action Badges for Desktop */}
-      <div className="fixed bottom-6 right-6 z-40 hidden md:flex flex-col gap-3 items-end">
-        <button
-          onClick={onOpenAiWidget}
-          className="group flex items-center gap-2.5 rounded-full border border-emerald-500/50 bg-emerald-500/10 px-5 py-3 text-xs font-extrabold text-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.3)] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-emerald-500 hover:text-slate-950"
-        >
-          <Sparkles className="h-4 w-4 text-emerald-400 group-hover:text-slate-950 animate-pulse" />
-          <span>🤖 Ask Portfolio AI</span>
-        </button>
-
-        <button
-          onClick={onOpenRecruiterCard}
-          className="group flex items-center gap-2.5 rounded-full border border-emerald-500/40 bg-slate-900/90 px-5 py-3 text-xs font-extrabold text-emerald-400 shadow-[0_10px_35px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-emerald-400 hover:bg-emerald-500 hover:text-slate-950"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 group-hover:bg-slate-950" />
-          </span>
-          <span>📱 Recruiter Cheat Sheet</span>
-        </button>
-      </div>
-
-      {/* Mobile Touch Native Bottom Navigation Bar */}
-      <MobileBottomNav
-        onOpenAiWidget={onOpenAiWidget}
-        onOpenRecruiterCard={onOpenRecruiterCard}
-        onOpenContact={onOpenContact}
-      />
     </div>
   );
 }
@@ -700,7 +613,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
               About me.
             </h1>
             <p className="mt-4 text-[1.08rem] leading-[2.1rem] text-[var(--color-body)]">
-              I am a BCA graduate from Acharya Institute of Graduate Studies, Bengaluru (CGPA: 8.4/10), with hands-on experience building full-stack web applications using React, Node.js, Express, MongoDB, Python/Flask, and JWT-based authentication.
+              I am a BCA graduate from Acharya Institute of Graduate Studies, Bengaluru (CGPA: 8.4/10), with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python/Flask, REST APIs, and JWT authentication. I am seeking an entry-level Software Engineer role.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <button
@@ -729,7 +642,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
               <h3 className="text-xl font-bold text-[var(--color-text)]">Bachelor of Computer Applications (BCA)</h3>
               <p className="text-sm font-semibold text-emerald-400 mt-1">Acharya Institute of Graduate Studies, Bengaluru (2023 – 2026)</p>
               <p className="mt-2 text-sm text-[var(--color-body)] leading-relaxed">
-                Academic CGPA: <strong className="text-[var(--color-text)]">8.4 / 10</strong>. Coursework includes Data Structures & Algorithms, DBMS, OOP, and modern web application development.
+                CGPA: <strong className="text-[var(--color-text)]">8.4 / 10</strong>. Core subjects: Data Structures and Algorithms, Object-Oriented Programming, and DBMS.
               </p>
             </div>
 
@@ -738,7 +651,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
                 What I do & Focus Areas
               </p>
               <p className="text-[1.02rem] leading-8 text-[var(--color-body)]">
-                I build full-stack web products, RESTful APIs, and secure backend systems with JWT, MongoDB, and SQL databases. Focused on clean system design, robust authentication, and shipping production-ready features.
+                I build full-stack web applications and REST APIs using React, Node.js, Express, Python, Flask, FastAPI, and SQL/NoSQL databases. My project experience includes JWT authentication, automated tests, Docker, and deployment on Render and Vercel.
               </p>
             </div>
 
@@ -748,11 +661,11 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {[
-                  "Full-stack development (React, Node.js)",
-                  "Python & Flask",
-                  "REST API Design & JWT Auth",
-                  "MongoDB & SQL Databases",
-                  "Deployment on Render & Vercel",
+                  "React, Node.js & Express.js",
+                  "Python, Flask & FastAPI",
+                  "REST APIs & JWT",
+                  "MongoDB, MySQL, PostgreSQL & SQLite",
+                  "Docker, Render & Vercel",
                   "DSA, OOP & DBMS",
                 ].map((item) => (
                   <span
@@ -806,21 +719,21 @@ function AboutCard() {
         </h2>
 
         <p className="mt-2 text-sm leading-6 text-[var(--color-body)]">
-          BCA graduate focused on building scalable backend systems, secure APIs, and full-stack web products with real-world deployment experience.
+          BCA graduate focused on full-stack applications, REST APIs, and backend development.
         </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="rounded-full bg-[var(--color-card-soft-strong)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
-              Backend
+              <span className="rounded-full bg-[var(--color-card-soft-strong)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
+                Full-Stack
             </span>
             <span className="rounded-full bg-[var(--color-card-soft-strong)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
-              AI
+                REST APIs
             </span>
             <span className="rounded-full bg-[var(--color-card-soft-strong)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
-              Cloud
+                JWT
             </span>
             <span className="rounded-full bg-[var(--color-card-soft-strong)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
-              DevOps
+                DSA
             </span>
           </div>
         </div>
@@ -892,27 +805,24 @@ function SocialCard({ href, label }) {
 
 function techBadgeFor(name) {
   const badges = {
-    Java: "J",
     Python: "Py",
     JavaScript: "JS",
     React: "R",
     "Node.js": "N",
-    Express: "Ex",
+    "Express.js": "Ex",
     FastAPI: "FA",
-    AWS: "A",
     Docker: "D",
     Git: "G",
     GitHub: "GH",
-    "Linux (Ubuntu)": "L",
-    "VS Code": "VS",
-    LaTeX: "Lx",
-    Postman: "PM",
-    "TCP/IP": "TCP",
-    "HTTP/HTTPS": "HTTP",
-    DNS: "DNS",
-    "Computer Networks": "CN",
     MySQL: "My",
     MongoDB: "MDB",
+    PostgreSQL: "Pg",
+    SQLite: "Sq",
+    SQLAlchemy: "SA",
+    "REST API Development": "API",
+    "Data Structures & Algorithms": "DSA",
+    "Object-Oriented Programming": "OOP",
+    "Team Collaboration": "TC",
   };
   return badges[name] || name.slice(0, 2).toUpperCase();
 }
@@ -946,7 +856,7 @@ function InteractivePanel({ title, items, onOpenCredential }) {
   );
 }
 
-function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidget }) {
+function Footer({ onOpenResume, onOpenContact }) {
   return (
     <footer className="mt-28 border-t border-[var(--color-border)] pt-12 pb-8 font-sans">
       {/* Top CTA Banner */}
@@ -969,7 +879,7 @@ function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidg
             </h3>
 
             <p className="mt-2 text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
-              Open for Full-Stack Web Development, Cloud DevOps & Multi-Agent AI Engineering roles.
+              Seeking an entry-level Software Engineer role.
             </p>
           </div>
 
@@ -980,13 +890,6 @@ function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidg
             >
               <SendIcon />
               <span>Let&apos;s Connect</span>
-            </button>
-
-            <button
-              onClick={onOpenRecruiterCard}
-              className="inline-flex items-center gap-2 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 px-5 py-3 text-xs font-extrabold text-emerald-400 transition hover:bg-emerald-500/20 hover:scale-105"
-            >
-              <span>📱 Recruiter Cheat Sheet</span>
             </button>
 
             <button
@@ -1009,12 +912,12 @@ function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidg
               Aman Kumar
             </h3>
             <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-400">
-              🟢 Active
+              Software Engineer
             </span>
           </div>
 
           <p className="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed max-w-md">
-            BCA graduate from Acharya Institute of Graduate Studies, Bengaluru with hands-on experience in full-stack web development, REST APIs, MongoDB, Flask, and deployed production-ready projects on Render and Vercel.
+            BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications, REST APIs, and Python services.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-1">
@@ -1040,21 +943,6 @@ function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidg
               <a href="#projects" className="transition hover:text-emerald-400 flex items-center gap-2">
                 <span>🚀</span> <span>Featured Projects</span>
               </a>
-            </li>
-            <li>
-              <a href="#journey" className="transition hover:text-emerald-400 flex items-center gap-2">
-                <span>🗓️</span> <span>Developer Journey</span>
-              </a>
-            </li>
-            <li>
-              <button onClick={onOpenAiWidget} className="transition hover:text-emerald-400 flex items-center gap-2 text-left">
-                <span>🤖</span> <span>Ask Portfolio AI</span>
-              </button>
-            </li>
-            <li>
-              <button onClick={onOpenRecruiterCard} className="transition hover:text-emerald-400 flex items-center gap-2 text-left">
-                <span>📱</span> <span>Recruiter Cheat Sheet</span>
-              </button>
             </li>
             <li>
               <button onClick={onOpenResume} className="transition hover:text-emerald-400 flex items-center gap-2 text-left">
@@ -1092,12 +980,6 @@ function Footer({ onOpenResume, onOpenContact, onOpenRecruiterCard, onOpenAiWidg
               <a href="https://www.linkedin.com/in/aman-kumar-3a5376291/" target="_blank" rel="noreferrer" className="transition hover:text-emerald-400 flex items-center gap-2">
                 <span className="text-emerald-400">🔗</span>
                 <span>LinkedIn</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://leetcode.com/u/aman_kumar/" target="_blank" rel="noreferrer" className="transition hover:text-emerald-400 flex items-center gap-2">
-                <span className="text-amber-400">🧩</span>
-                <span>LeetCode</span>
               </a>
             </li>
           </ul>

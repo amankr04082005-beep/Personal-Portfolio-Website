@@ -43,10 +43,10 @@ export default function ResumeModal({ isOpen, onClose, onShowToast }) {
             </div>
             <div>
               <h3 className="text-base font-extrabold text-[var(--color-text)]">
-                Aman Kumar — Full-Stack Resume
+                Aman Kumar — Software Engineer Resume
               </h3>
               <p className="text-xs text-[var(--color-section-muted)]">
-                Official PDF Document • 2026 Edition
+                Resume PDF
               </p>
             </div>
           </div>

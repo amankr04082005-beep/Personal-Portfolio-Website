@@ -1,4 +1,4 @@
-import { X, Award, ExternalLink, CheckCircle, ShieldCheck } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 
 export default function CredentialModal({ credential, onClose }) {
   if (!credential) return null;
@@ -25,7 +25,7 @@ export default function CredentialModal({ credential, onClose }) {
           </div>
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-section-muted)]">
-              {credential.issuer || "Verified Credential"}
+              {credential.issuer || "Credential"}
             </span>
             <h3 className="text-2xl font-extrabold text-[var(--color-text)] leading-tight mt-0.5">
               {credential.title}
@@ -35,13 +35,13 @@ export default function CredentialModal({ credential, onClose }) {
 
         <div className="mt-6 space-y-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-soft-2)] p-5 text-sm">
           <div>
-            <p className="text-xs uppercase font-bold text-[var(--color-section-muted)]">Description & Verification</p>
+            <p className="text-xs uppercase font-bold text-[var(--color-section-muted)]">Description</p>
             <p className="mt-1 leading-6 text-[var(--color-body)]">{credential.description}</p>
           </div>
 
           {credential.skills && (
             <div className="pt-3 border-t border-[var(--color-border)]">
-              <p className="text-xs uppercase font-bold text-[var(--color-section-muted)] mb-2">Verified Skills</p>
+              <p className="text-xs uppercase font-bold text-[var(--color-section-muted)] mb-2">Related Skills</p>
               <div className="flex flex-wrap gap-1.5">
                 {credential.skills.map((skill) => (
                   <span
@@ -57,10 +57,7 @@ export default function CredentialModal({ credential, onClose }) {
 
           {credential.date && (
             <div className="pt-3 border-t border-[var(--color-border)] flex items-center justify-between text-xs text-[var(--color-section-muted)]">
-              <span>Issued Date: {credential.date}</span>
-              <span className="flex items-center gap-1 text-emerald-400 font-semibold">
-                <ShieldCheck className="h-4 w-4" /> Verified Candidate
-              </span>
+              <span>Year: {credential.date}</span>
             </div>
           )}
         </div>

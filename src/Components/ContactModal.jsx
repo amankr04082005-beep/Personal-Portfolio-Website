@@ -137,7 +137,7 @@ export default function ContactModal({ isOpen, onClose, onShowToast }) {
                     </a>
                     <div className="flex items-center gap-3 text-[var(--color-body)]">
                       <MapPin className="h-4 w-4 text-amber-400 shrink-0" />
-                      <span>Bangalore, India</span>
+                      <span>Bengaluru, India</span>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function ContactModal({ isOpen, onClose, onShowToast }) {
                     Availability
                   </h4>
                   <p className="text-xs leading-5 text-[var(--color-body)]">
-                    Open for Full-Stack, Cloud & AI Engineering roles, freelance projects, and collaborations.
+                    Seeking an entry-level Software Engineer role.
                   </p>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function ContactModal({ isOpen, onClose, onShowToast }) {
                   </label>
                   <div className="flex flex-wrap gap-1.5">
                     {[
-                      "💼 Full-Stack / AI Role Inquiry",
+                      "💼 Software Engineer Role Inquiry",
                       "📅 Schedule Interview",
                       "📄 Request Resume PDF",
                     ].map((preset) => (
