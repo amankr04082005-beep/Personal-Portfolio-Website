@@ -607,9 +607,11 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
         <section className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <article className="rounded-[32px] border border-[var(--color-border)] bg-[var(--color-card)] p-7 shadow-[var(--shadow-card)] sm:p-9">
             <div className="mb-6 overflow-hidden rounded-[24px] bg-[var(--color-card-soft-2)] p-2 shadow-xl border border-[var(--color-border)]">
-              <div className="grid min-h-[280px] w-full place-items-center rounded-[20px] border border-[var(--color-border)] bg-slate-900 text-7xl font-black text-emerald-300">
-                AK
-              </div>
+              <img
+                src={profileImage}
+                alt="Aman Kumar"
+                className="h-[320px] w-full rounded-[20px] border border-[var(--color-border)] object-cover object-top sm:h-[380px]"
+              />
             </div>
             <h1 className="text-[2.8rem] leading-[0.95] font-extrabold tracking-[-0.06em] sm:text-[3.8rem]">
               About me.
@@ -705,9 +707,11 @@ function AboutCard() {
     >
       <div className="flex items-center gap-5 rounded-[24px] border border-[var(--color-border)] bg-[var(--color-card-soft)] p-5">
       <div className="relative shrink-0">
-        <div className="grid h-20 w-20 place-items-center rounded-full bg-slate-900 text-lg font-black text-emerald-300 ring-2 ring-[var(--color-border)] transition duration-300 group-hover:scale-105">
-          AK
-        </div>
+        <img
+          src={profileImage}
+          alt="Aman Kumar"
+          className="h-20 w-20 rounded-full object-cover object-top ring-2 ring-[var(--color-border)] transition duration-300 group-hover:scale-105"
+        />
         <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-[var(--color-card)]" />
       </div>
 
