@@ -92,9 +92,9 @@ export default function RecruiterCardModal({ isOpen, onClose, onShowToast, onOpe
 
             {/* Education */}
             <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card-soft-2)] p-3 text-xs">
-              <p className="font-bold text-[var(--color-text)]">B.E. Information Science and Engineering</p>
+              <p className="font-bold text-[var(--color-text)]">Bachelor of Computer Applications (BCA)</p>
               <p className="text-[11px] text-[var(--color-section-muted)] mt-0.5">
-                Acharya Institute of Technology, Bengaluru (2023 - 2027) • <strong className="text-emerald-400">CGPA: 8.20 / 10</strong>
+                Acharya Institute of Graduate Studies, Bengaluru (2023 - 2026) • <strong className="text-emerald-400">CGPA: 8.4 / 10</strong>
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export default function RecruiterCardModal({ isOpen, onClose, onShowToast, onOpe
                 Primary Stack & Expertise
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Java (DSA)", "Python", "JavaScript", "React", "Node.js", "FastAPI", "Docker", "AWS", "MySQL", "MongoDB"].map((tech) => (
+                {["Python", "JavaScript", "SQL", "React", "Node.js", "Express", "Flask", "FastAPI", "Docker", "MySQL", "MongoDB"].map((tech) => (
                   <span
                     key={tech}
                     className="rounded-md bg-[var(--color-card-soft-strong)] border border-[var(--color-border)] px-2 py-0.5 text-[11px] font-semibold text-[var(--color-text)]"
@@ -118,16 +118,12 @@ export default function RecruiterCardModal({ isOpen, onClose, onShowToast, onOpe
             {/* Key Accomplishments */}
             <div className="space-y-1 text-xs text-[var(--color-body)]">
               <p className="flex items-center gap-2">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                <span><strong>2× Hackathon Winner:</strong> Srujana 2025 (2nd) & ImpactX Finalist</span>
-              </p>
-              <p className="flex items-center gap-2">
                 <ShieldCheck className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                <span><strong>Oracle Certified:</strong> Cloud OCI AI Foundations Associate (2025)</span>
+                <span><strong>3rd Rank:</strong> Coding and Debugging Competition, IT Fest 2024</span>
               </p>
               <p className="flex items-center gap-2">
                 <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                <span><strong>150+ DSA Solved:</strong> Arrays, Trees, Graphs, Dynamic Programming</span>
+                <span><strong>50+ DSA Solved:</strong> Data Structures and Algorithms</span>
               </p>
             </div>
 

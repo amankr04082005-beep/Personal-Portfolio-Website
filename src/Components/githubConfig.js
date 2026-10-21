@@ -1,7 +1,6 @@
-export const githubUsername = "aman-kumar";
+export const githubUsername = "amankr04082005-beep";
 
-export const githubProfileUrl =
-  "#";
+export const githubProfileUrl = `https://github.com/${githubUsername}`;
 
 export const githubContributionsApi =
   `https://github-contributions-api.jogruber.de/v4/${githubUsername}`;
@@ -21,10 +20,6 @@ export const githubStats = [
   },
   {
     title: "DSA",
-    value: "150+",
-  },
-  {
-    title: "Hackathons",
-    value: "2×",
+    value: "50+",
   },
 ];

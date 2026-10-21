@@ -102,11 +102,10 @@ function GitHubActivitySection() {
         </div>
 
         {/* Dynamic Metric Cards */}
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           <StatCard icon="🔥" title="Total Commits" value={totalDisplay} />
-          <StatCard icon="💻" title="DSA Problems" value="150+" />
+          <StatCard icon="💻" title="DSA Problems" value="50+" />
           <StatCard icon="🚀" title="Projects Built" value="8+" />
-          <StatCard icon="🏆" title="Hackathons Won" value="2×" />
         </div>
 
         {/* Heatmap Grid */}

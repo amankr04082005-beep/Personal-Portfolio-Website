@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import ProjectSection from "./Components/ProjectSection";
 import ProjectDetailPage from "./Components/ProjectDetailPage";
+import GitHubActivitySection from "./Components/GitHubActivitySection";
 import CommandPalette from "./Components/CommandPalette";
 import ContactModal from "./Components/ContactModal";
 import ResumeModal from "./Components/ResumeModal";
+import RecruiterCardModal from "./Components/RecruiterCardModal";
 import CredentialModal from "./Components/CredentialModal";
 import ProjectShareModal from "./Components/ProjectShareModal";
 import Toast from "./Components/Toast";
@@ -11,7 +13,7 @@ import CursorGlow from "./Components/CursorGlow";
 import CursorCat from "./Components/CursorCat";
 import { playSound } from "./utils/soundEffects";
 import { projects } from "./data/projectsData";
-import { Command, FileText, Send, ShieldCheck, Volume2, VolumeX } from "lucide-react";
+import { Command, FileText, QrCode, Send, ShieldCheck, Volume2, VolumeX } from "lucide-react";
 import profileImage from "../assets/profile/self image.jpeg";
 
 const skillsGroups = [
@@ -155,6 +157,7 @@ function App() {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isRecruiterCardOpen, setIsRecruiterCardOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [selectedCredential, setSelectedCredential] = useState(null);
   const [selectedShareProject, setSelectedShareProject] = useState(null);
@@ -267,6 +270,16 @@ function App() {
         onShowToast={showToastNotification}
       />
 
+      <RecruiterCardModal
+        isOpen={isRecruiterCardOpen}
+        onClose={() => setIsRecruiterCardOpen(false)}
+        onShowToast={showToastNotification}
+        onOpenResume={() => {
+          setIsRecruiterCardOpen(false);
+          setIsResumeOpen(true);
+        }}
+      />
+
       <CredentialModal
         credential={selectedCredential}
         onClose={() => setSelectedCredential(null)}
@@ -328,6 +341,10 @@ function App() {
             playSound("click", soundEnabled);
             setIsResumeOpen(true);
           }}
+          onOpenRecruiterCard={() => {
+            playSound("click", soundEnabled);
+            setIsRecruiterCardOpen(true);
+          }}
           onOpenCredential={(cred) => {
             playSound("click", soundEnabled);
             setSelectedCredential(cred);
@@ -352,6 +369,7 @@ function PortfolioHome({
   onOpenCommand,
   onOpenContact,
   onOpenResume,
+  onOpenRecruiterCard,
   onOpenCredential,
   onOpenShare,
 }) {
@@ -393,6 +411,14 @@ function PortfolioHome({
             >
               <FileText className="h-4 w-4 text-amber-400" />
               <span>Resume</span>
+            </button>
+
+            <button
+              onClick={onOpenRecruiterCard}
+              className="inline-flex items-center gap-2 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-xs font-bold text-emerald-400 shadow-md transition hover:-translate-y-0.5 hover:bg-emerald-500/15"
+            >
+              <QrCode className="h-4 w-4" />
+              <span>QR &amp; Cheat Sheet</span>
             </button>
 
             {/* Sound Effects Toggle Button */}
@@ -458,22 +484,27 @@ function PortfolioHome({
             </h2>
 
             <p className="max-w-[760px] text-[1.08rem] leading-[2.15rem] text-[var(--color-body)] transition-colors duration-300">
-              BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python, and Flask, along with REST APIs and JWT authentication. Strong foundation in DSA, OOP, and DBMS; seeking an entry-level Software Engineer role.
+              BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack web applications using{" "}
+              {["React", "Node.js", "Express", "MongoDB", "Python", "Flask"].map((skill, index, skills) => (
+                <span key={skill}>
+                  <span className="mx-1 inline-flex items-center rounded-xl border border-emerald-500/20 bg-[var(--color-card-soft-strong)] px-3 py-1 text-[0.92rem] font-bold text-emerald-300 align-middle">
+                    {skill}
+                  </span>
+                  {index < skills.length - 1 ? ", " : ""}
+                </span>
+              ))}
+              , along with REST APIs and JWT authentication. Deployed projects on Render and Vercel. Strong foundation in Data Structures and Algorithms, OOP, and DBMS; placed 3rd in a coding and debugging competition. Seeking an entry-level Software Engineer role.
             </p>
 
             {/* Quick Hero Key Stats Bar */}
-            <div className="my-7 grid grid-cols-3 gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-soft-2)] p-3.5 text-center">
+            <div className="my-7 grid grid-cols-2 gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-soft-2)] p-3.5 text-center">
               <div>
-                <p className="text-2xl font-black text-emerald-400">9</p>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-section-muted)] mt-0.5">REST APIs</p>
+                <p className="text-2xl font-black text-emerald-400">8+</p>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-section-muted)] mt-0.5">Projects Built</p>
               </div>
-              <div className="border-x border-[var(--color-border)]">
-                <p className="text-2xl font-black text-amber-400">3rd</p>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-section-muted)] mt-0.5">Competition</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-sky-400">8.4</p>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-section-muted)] mt-0.5">CGPA</p>
+              <div className="border-l border-[var(--color-border)]">
+                <p className="text-2xl font-black text-sky-400">50+</p>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-section-muted)] mt-0.5">DSA Solved</p>
               </div>
             </div>
 
@@ -527,6 +558,8 @@ function PortfolioHome({
             ))}
           </article>
         </section>
+
+        <GitHubActivitySection />
 
         {/* Filterable Projects Section */}
         <ProjectSection onOpenShare={onOpenShare} />
