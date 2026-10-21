@@ -122,14 +122,14 @@ export default function ContactModal({ isOpen, onClose, onShowToast }) {
                   </h4>
                   <div className="space-y-3.5 text-xs sm:text-sm">
                     <a
-                      href="mailto:amankumar04082005@gmail.com"
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=amankumar04082005%40gmail.com"
                       className="flex items-center gap-3 text-[var(--color-body)] hover:text-[var(--color-text)] transition"
                     >
                       <Mail className="h-4 w-4 text-emerald-400 shrink-0" />
                       <span className="truncate">amankumar04082005@gmail.com</span>
                     </a>
                     <a
-                      href="tel:+916200428363"
+                      href="https://wa.me/916200428363"
                       className="flex items-center gap-3 text-[var(--color-body)] hover:text-[var(--color-text)] transition"
                     >
                       <Phone className="h-4 w-4 text-sky-400 shrink-0" />

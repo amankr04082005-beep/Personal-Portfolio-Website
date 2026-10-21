@@ -20,7 +20,7 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <a className="nav-resume" href={`mailto:${profile.email}`}>
+      <a className="nav-resume" href={profile.emailLink}>
         Say hello
       </a>
     </nav>

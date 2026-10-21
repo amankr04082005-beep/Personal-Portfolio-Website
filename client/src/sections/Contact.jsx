@@ -39,10 +39,10 @@ export default function Contact() {
           </p>
           <ul className="contact-links">
             <li>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <a href={profile.emailLink}>{profile.email}</a>
             </li>
             <li>
-              <a href={`tel:${profile.phone}`}>{profile.phone}</a>
+              <a href={profile.whatsappLink}>{profile.phone}</a>
             </li>
             <li>
               <a href={profile.linkedin} target="_blank" rel="noreferrer">

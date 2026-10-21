@@ -5,7 +5,9 @@ export const profile = {
     "BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python, and Flask. Strong foundation in DSA, OOP, and DBMS, with 3rd place in a coding and debugging competition.",
   location: "Bengaluru, India",
   email: "amankumar04082005@gmail.com",
+  emailLink: "https://mail.google.com/mail/?view=cm&fs=1&to=amankumar04082005%40gmail.com",
   phone: "+91 6200428363",
+  whatsappLink: "https://wa.me/916200428363",
   github: "https://github.com/amankr04082005-beep",
   linkedin: "https://linkedin.com/in/aman-kumar-3a5376291",
   summary:

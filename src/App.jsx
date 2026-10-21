@@ -142,11 +142,16 @@ const certificatesData = [
   },
 ];
 
+const emailAddress = "amankumar04082005@gmail.com";
+const phoneNumber = "+916200428363";
+const emailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+const whatsappHref = `https://wa.me/${phoneNumber.replace(/\D/g, "")}`;
+
 const profileLinks = [
   { label: "GitHub", href: "https://github.com/amankr04082005-beep" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/aman-kumar-3a5376291/" },
-  { label: "Email", href: "mailto:amankumar04082005@gmail.com" },
-  { label: "Phone", href: "tel:+916200428363" },
+  { label: "Email", href: emailHref },
+  { label: "Phone", href: whatsappHref },
 ];
 
 function App() {
@@ -998,13 +1003,13 @@ function Footer({ onOpenResume, onOpenContact }) {
           </h4>
           <ul className="space-y-2.5 text-xs font-medium text-[var(--color-body)]">
             <li>
-              <a href="mailto:amankumar04082005@gmail.com" className="transition hover:text-emerald-400 flex items-center gap-2">
+              <a href={emailHref} className="transition hover:text-emerald-400 flex items-center gap-2">
                 <span className="text-emerald-400">📧</span>
                 <span>amankumar04082005@gmail.com</span>
               </a>
             </li>
             <li>
-              <a href="tel:+916200428363" className="transition hover:text-emerald-400 flex items-center gap-2">
+              <a href={whatsappHref} className="transition hover:text-emerald-400 flex items-center gap-2">
                 <span className="text-emerald-400">📞</span>
                 <span>+91 6200428363</span>
               </a>
