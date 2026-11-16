@@ -104,7 +104,7 @@ export default function RecruiterCardModal({ isOpen, onClose, onShowToast, onOpe
                 Primary Stack & Expertise
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Python", "JavaScript", "SQL", "React", "Node.js", "Express", "Flask", "FastAPI", "Docker", "MySQL", "MongoDB"].map((tech) => (
+                {["Java", "Spring Boot", "Hibernate", "JUnit", "JavaScript", "SQL", "React", "Node.js", "Express", "Docker", "MySQL", "MongoDB"].map((tech) => (
                   <span
                     key={tech}
                     className="rounded-md bg-[var(--color-card-soft-strong)] border border-[var(--color-border)] px-2 py-0.5 text-[11px] font-semibold text-[var(--color-text)]"

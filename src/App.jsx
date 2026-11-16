@@ -20,7 +20,7 @@ const skillsGroups = [
   {
     title: "Languages",
     items: [
-      { name: "Python", iconSrc: "https://cdn.simpleicons.org/python" },
+      { name: "Java", iconSrc: "https://cdn.simpleicons.org/java" },
       { name: "JavaScript", iconSrc: "https://cdn.simpleicons.org/javascript" },
       { name: "SQL" },
     ],
@@ -36,9 +36,8 @@ const skillsGroups = [
     items: [
       { name: "Node.js", iconSrc: "https://cdn.simpleicons.org/nodedotjs" },
       { name: "Express.js", iconSrc: "https://cdn.simpleicons.org/express" },
-      { name: "Flask" },
-      { name: "FastAPI", iconSrc: "https://cdn.simpleicons.org/fastapi" },
-      { name: "SQLAlchemy" },
+      { name: "Spring Boot" },
+      { name: "Hibernate" },
     ],
   },
   {
@@ -67,7 +66,7 @@ const skillsGroups = [
       { name: "GitHub", iconSrc: "https://cdn.simpleicons.org/github" },
       { name: "REST API Development" },
       { name: "JWT" },
-      { name: "pytest" },
+      { name: "JUnit" },
       { name: "Unit Testing" },
     ],
   },
@@ -125,12 +124,12 @@ const certificatesData = [
     skills: ["Problem Solving", "Algorithms", "Coding"],
   },
   {
-    title: "Python with DSA",
+    title: "Data Structures & Algorithms",
     issuer: "Unstop",
     date: "2026",
     icon: "📜",
-    description: "Python with DSA certification.",
-    skills: ["Python", "DSA", "Programming"],
+    description: "Data Structures & Algorithms certification.",
+    skills: ["DSA", "Programming"],
   },
   {
     title: "GitHub Workflow Mastery",
@@ -461,6 +460,9 @@ function PortfolioHome({
               {heroRole}
             </span>
           </h1>
+          <p className="mt-4 max-w-4xl text-sm font-semibold tracking-wide text-[var(--color-section-muted)] sm:text-base">
+            BCA Graduate Student | Software Engineer Enthusiast | Java | Data Structures &amp; Algorithms | Full-Stack Development
+          </p>
         </header>
 
         {/* Hero Section */}
@@ -489,8 +491,8 @@ function PortfolioHome({
             </h2>
 
             <p className="max-w-[760px] text-[1.08rem] leading-[2.15rem] text-[var(--color-body)] transition-colors duration-300">
-              BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack web applications using{" "}
-              {["React", "Node.js", "Express", "MongoDB", "Python", "Flask"].map((skill, index, skills) => (
+              BCA graduate (CGPA 8.4) focused on Java and full-stack development, with experience building applications using{" "}
+              {["Java", "Spring Boot", "React", "Node.js", "MongoDB"].map((skill, index, skills) => (
                 <span key={skill}>
                   <span className="mx-1 inline-flex items-center rounded-xl border border-emerald-500/20 bg-[var(--color-card-soft-strong)] px-3 py-1 text-[0.92rem] font-bold text-emerald-300 align-middle">
                     {skill}
@@ -498,7 +500,7 @@ function PortfolioHome({
                   {index < skills.length - 1 ? ", " : ""}
                 </span>
               ))}
-              , along with REST APIs and JWT authentication. Deployed projects on Render and Vercel. Strong foundation in Data Structures and Algorithms, OOP, and DBMS; placed 3rd in a coding and debugging competition. Seeking an entry-level Software Engineer role.
+              , along with REST APIs and JWT authentication. Deployed projects on Render and Vercel. Strong foundation in Data Structures and Algorithms, OOP, and DBMS; placed 3rd in a coding and debugging competition. Seeking an entry-level Software Engineer role, with Java as my primary programming language.
             </p>
 
             {/* Quick Hero Key Stats Bar */}
@@ -655,7 +657,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
               About me.
             </h1>
             <p className="mt-4 text-[1.08rem] leading-[2.1rem] text-[var(--color-body)]">
-              I am a BCA graduate from Acharya Institute of Graduate Studies, Bengaluru (CGPA: 8.4/10), with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python/Flask, REST APIs, and JWT authentication. I am seeking an entry-level Software Engineer role.
+              I am a BCA graduate from Acharya Institute of Graduate Studies, Bengaluru (CGPA: 8.4/10), focused on Java and full-stack development, with experience using Spring Boot, React, Node.js, MongoDB, REST APIs, and JWT authentication. I am seeking an entry-level Software Engineer role.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <button
@@ -693,7 +695,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
                 What I do & Focus Areas
               </p>
               <p className="text-[1.02rem] leading-8 text-[var(--color-body)]">
-                I build full-stack web applications and REST APIs using React, Node.js, Express, Python, Flask, FastAPI, and SQL/NoSQL databases. My project experience includes JWT authentication, automated tests, Docker, and deployment on Render and Vercel.
+                I build full-stack web applications and REST APIs using Java, Spring Boot, React, Node.js, Express, and SQL/NoSQL databases. My project experience includes JWT authentication, automated tests, Docker, and deployment on Render and Vercel.
               </p>
             </div>
 
@@ -704,7 +706,7 @@ function AboutPage({ theme, onToggleTheme, onOpenContact, onOpenResume, onBack }
               <div className="flex flex-wrap gap-2.5">
                 {[
                   "React, Node.js & Express.js",
-                  "Python, Flask & FastAPI",
+                  "Java, Spring Boot & Hibernate",
                   "REST APIs & JWT",
                   "MongoDB, MySQL, PostgreSQL & SQLite",
                   "Docker, Render & Vercel",
@@ -849,12 +851,14 @@ function SocialCard({ href, label }) {
 
 function techBadgeFor(name) {
   const badges = {
-    Python: "Py",
+    Java: "J",
+    "Spring Boot": "SB",
+    Hibernate: "Hb",
+    JUnit: "JU",
     JavaScript: "JS",
     React: "R",
     "Node.js": "N",
     "Express.js": "Ex",
-    FastAPI: "FA",
     Docker: "D",
     Git: "G",
     GitHub: "GH",
@@ -862,7 +866,6 @@ function techBadgeFor(name) {
     MongoDB: "MDB",
     PostgreSQL: "Pg",
     SQLite: "Sq",
-    SQLAlchemy: "SA",
     "REST API Development": "API",
     "Data Structures & Algorithms": "DSA",
     "Object-Oriented Programming": "OOP",
@@ -961,7 +964,7 @@ function Footer({ onOpenResume, onOpenContact }) {
           </div>
 
           <p className="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed max-w-md">
-            BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications, REST APIs, and Python services.
+            BCA graduate (CGPA 8.4) focused on Java, full-stack applications, and REST API development.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-1">

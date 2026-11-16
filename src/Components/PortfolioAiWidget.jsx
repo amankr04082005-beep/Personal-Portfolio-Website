@@ -179,7 +179,7 @@ function getPreciseAnswer(rawQuery) {
       "   • Winner @ State Hackathon (Sarkaar Sarthi AI Multilingual Welfare Assistant).\n\n" +
       "2. 🚀 Full-Stack, Cloud DevOps & Multi-Agent AI Expertise:\n" +
       "   • Architected Vercel-like automated cloud deployment pipelines (Docker, AWS S3/ECS).\n" +
-      "   • Built LogIntelligence AI incident triage engines (FastAPI, LangChain, Llama 3).\n" +
+      "   • Built LogIntelligence AI incident triage engines (Java, Spring Boot, LangChain, Llama 3).\n" +
       "   • Built App Intel 100-app multi-agent research pipeline for Composio.\n\n" +
       "3. 💻 Strong Algorithmic Fundamentals & Problem Solving:\n" +
       "   • 150+ DSA problems solved in Java on LeetCode (@aman).\n" +
@@ -219,7 +219,7 @@ function getPreciseAnswer(rawQuery) {
       "🏆 Aman's 2× Hackathon Wins:\n\n" +
       "1. CivicSim (2nd Place @ Srujana State Hackathon 2025):\n" +
       "   • AI municipal document verification & corruption anomaly detector.\n" +
-      "   • Tech: Python, FastAPI, Tesseract OCR, Gemini AI.\n\n" +
+      "   • Tech: Java, Spring Boot, Tesseract OCR, Gemini AI.\n\n" +
       "2. Sarkaar Sarthi (State Hackathon Winner):\n" +
       "   • Multilingual AI citizen assistant for government welfare schemes.\n" +
       "   • Tech: React, Node.js, Express, RAG Vector Search, MySQL."
@@ -231,17 +231,17 @@ function getPreciseAnswer(rawQuery) {
     return (
       "🤖 App Intel (Composio AI App Research & Verification System):\n\n" +
       "• What it does: End-to-end multi-agent AI research pipeline and product ops analytics dashboard across 100 enterprise software apps. Features autonomous web discovery, Playwright scraping, quote verification, and zero-wait model failover.\n" +
-      "• Tech Stack: Python, FastAPI, React, Groq AI, Playwright, LangChain.\n" +
+      "• Tech Stack: Java, Spring Boot, React, Groq AI, Playwright, LangChain.\n" +
       "• GitHub Repo: #/app-intel"
     );
   }
 
   // 4.5. WI-FI CONNECTIVITY TESTER
-  if (match(["wifi", "wi-fi", "connectivity", "tester", "netsh", "network diagnostic", "streamlit wifi"])) {
+  if (match(["wifi", "wi-fi", "connectivity", "tester", "netsh", "network diagnostic"])) {
     return (
-      "📡 Wi-Fi Connectivity Tester (Python Network Diagnostics):\n\n" +
+      "📡 Wi-Fi Connectivity Tester (Java Network Diagnostics):\n\n" +
       "• What it does: Multi-layer network diagnostic tool analyzing Windows Wi-Fi connections (SSID, BSSID, RSSI), gateway ping, DNS resolution, internet reachability, and HTTP response latency with SQLite history tracking.\n" +
-      "• Tech Stack: Python, Streamlit, SQLite, Windows netsh CLI, requests, pytest.\n" +
+      "• Tech Stack: Java, Spring Boot, SQLite, Windows netsh CLI, JUnit.\n" +
       "• Live App: https://wi-fi-connectivity-tester.onrender.com/\n" +
       "• GitHub Repo: #/Wi-Fi-Connectivity-Tester"
     );
@@ -258,11 +258,11 @@ function getPreciseAnswer(rawQuery) {
   }
 
   // 5. LOGINTELLIGENCE
-  if (match(["logintelligence", "log", "incident", "llama", "fastapi log"])) {
+  if (match(["logintelligence", "log", "incident", "llama", "spring boot log"])) {
     return (
       "🧠 LogIntelligence (DevOps AI Incident Diagnosis Platform):\n\n" +
       "• What it does: Analyzes raw production logs, identifies affected technologies (Postgres, Redis, Kafka, K8s), and executes deterministic operational playbooks with zero AI hallucinations.\n" +
-      "• Tech Stack: FastAPI, Python, React, Next.js, LangChain, Ollama (Llama 3).\n" +
+      "• Tech Stack: Spring Boot, Java, React, Next.js, LangChain, Ollama (Llama 3).\n" +
       "• Live App: https://logintelligence-nu.vercel.app/"
     );
   }
@@ -282,7 +282,7 @@ function getPreciseAnswer(rawQuery) {
     return (
       "🏛️ CivicSim (AI Civic Transparency - 2nd Place Winner @ Srujana 2025):\n\n" +
       "• What it does: 90%+ OCR data extraction accuracy on public grant receipts, cross-verifying line items against government APIs for corruption detection.\n" +
-      "• Tech Stack: Python, React, FastAPI, Tesseract OCR, Google Gemini AI."
+      "• Tech Stack: Java, React, Spring Boot, Tesseract OCR, Google Gemini AI."
     );
   }
 
@@ -300,7 +300,7 @@ function getPreciseAnswer(rawQuery) {
     return (
       "📄 Invoice Processing Tool (OCR Document Automation Pipeline):\n\n" +
       "• What it does: Automated OCR extraction of vendor name, date, subtotal, and line items from handwritten & scanned invoices using Google Cloud Vision API with arithmetic validation.\n" +
-      "• Tech Stack: Python, Flask, Google Cloud Vision, MySQL."
+      "• Tech Stack: Java, Spring Boot, Google Cloud Vision, MySQL."
     );
   }
 
@@ -309,7 +309,7 @@ function getPreciseAnswer(rawQuery) {
     return (
       "🎯 Career Prediction System (AutoGluon ML Model):\n\n" +
       "• What it does: Machine learning model achieving >85% accuracy predicting student career trajectories based on academic, technical & behavioral inputs.\n" +
-      "• Tech Stack: Python, AutoGluon ML, Scikit-Learn, React."
+      "• Tech Stack: Java, Weka ML, React."
     );
   }
 
@@ -340,12 +340,13 @@ function getPreciseAnswer(rawQuery) {
   }
 
   // 13. TECH STACK & SKILLS
-  if (match(["skill", "skills", "stack", "tech", "language", "languages", "java", "python", "javascript", "docker", "aws", "react", "node", "fastapi", "mysql", "mongodb"])) {
+  if (match(["skill", "skills", "stack", "tech", "language", "languages", "java", "spring boot", "hibernate", "javascript", "docker", "aws", "react", "node", "mysql", "mongodb"])) {
     return (
       "💻 Aman's Core Technical Stack:\n\n" +
-      "• Languages: Java (150+ DSA Solved), Python, JavaScript (ES6+), SQL\n" +
+      "• Languages: Java (150+ DSA Solved), JavaScript (ES6+), SQL\n" +
+      "• Java Stack: Spring Boot, Hibernate, JUnit, JDBC\n" +
       "• Frontend: React, Next.js, Tailwind CSS, Vite, HTML5/CSS3\n" +
-      "• Backend & Cloud: Node.js, Express, FastAPI, Docker, AWS (S3, ECR, ECS), REST APIs\n" +
+      "• Backend & Cloud: Java, Spring Boot, Node.js, Express, Docker, AWS (S3, ECR, ECS), REST APIs\n" +
       "• Databases & AI: MySQL, MongoDB, SQLite, Prisma, LangChain, Ollama (Llama 3), Google Gemini AI, OCR"
     );
   }

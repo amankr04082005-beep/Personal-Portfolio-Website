@@ -4,7 +4,7 @@ export default function EngineeringMetrics() {
   const metrics = [
     {
       title: "Sub-100ms API Latency",
-      subtitle: "FastAPI & Async Python Gateway",
+      subtitle: "Java & Spring Boot Gateway",
       value: "<100ms",
       icon: <Zap className="h-5 w-5 text-amber-400" />,
       description: "Optimized async event loops and Regex pattern compilation for high-throughput production log processing.",

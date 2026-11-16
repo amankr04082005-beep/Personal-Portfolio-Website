@@ -35,7 +35,7 @@ export default function Timeline() {
       title: "2× State Hackathon Wins & AI Document Processing",
       summary:
         "Achieved 2nd Place at Srujana State Hackathon 2025 for CivicSim AI Transparency Platform and won the State Hackathon for Sarkaar Sarthi Multilingual AI Welfare Assistant.",
-      tech: ["CivicSim", "Sarkaar Sarthi", "Python", "FastAPI", "Gemini AI", "RAG"],
+      tech: ["CivicSim", "Sarkaar Sarthi", "Java", "Spring Boot", "Gemini AI", "RAG"],
       icon: <Trophy className="h-5 w-5 text-amber-400" />,
       projects: [
         "CivicSim AI Transparency Platform (Srujana 2025 2nd Place)",
@@ -53,8 +53,8 @@ export default function Timeline() {
       year: "2026",
       title: "Oracle Cloud AI Certification & Distributed Backends",
       summary:
-        "Earned Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate certification and architected production backend systems with FastAPI, Docker, Polygon Blockchain, and AWS.",
-      tech: ["Oracle Certified", "Docker", "AWS S3", "Polygon", "Prisma", "FastAPI"],
+        "Earned Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate certification and architected production backend systems with Spring Boot, Docker, Polygon Blockchain, and AWS.",
+      tech: ["Oracle Certified", "Docker", "AWS S3", "Polygon", "Prisma", "Spring Boot"],
       icon: <ShieldCheck className="h-5 w-5 text-emerald-400" />,
       projects: [
         "InfraLedger (Polygon Blockchain Audit Platform)",

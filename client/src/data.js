@@ -2,7 +2,7 @@ export const profile = {
   name: "Aman Kumar",
   role: "Software Engineer | BCA Graduate",
   tagline:
-    "BCA graduate (CGPA 8.4) with hands-on experience building and deploying full-stack applications using React, Node.js, Express, MongoDB, Python, and Flask. Strong foundation in DSA, OOP, and DBMS, with 3rd place in a coding and debugging competition.",
+    "BCA graduate (CGPA 8.4) focused on Java and full-stack development using Spring Boot, React, Node.js, Express, and MongoDB. Strong foundation in DSA, OOP, and DBMS, with 3rd place in a coding and debugging competition.",
   location: "Bengaluru, India",
   email: "amankumar04082005@gmail.com",
   emailLink: "https://mail.google.com/mail/?view=cm&fs=1&to=amankumar04082005%40gmail.com",
@@ -11,7 +11,7 @@ export const profile = {
   github: "https://github.com/amankr04082005-beep",
   linkedin: "https://linkedin.com/in/aman-kumar-3a5376291",
   summary:
-    "BCA graduate with hands-on experience building and deploying full-stack web applications using React, Node.js, Express, and MongoDB, along with Python/Flask services, RESTful APIs, and JWT authentication. Strong foundation in Data Structures and Algorithms, OOP, and DBMS; placed 3rd in a coding and debugging competition. Seeking an entry-level Software Engineer role.",
+    "BCA graduate focused on Java and full-stack development, building web applications using Spring Boot, React, Node.js, Express, and MongoDB, along with RESTful APIs and JWT authentication. Strong foundation in Data Structures and Algorithms, OOP, and DBMS; placed 3rd in a coding and debugging competition. Seeking an entry-level Software Engineer role, with Java as my primary programming language.",
   education: {
     institution: "Acharya Institute of Graduate Studies, Bengaluru",
     degree: "Bachelor of Computer Applications (BCA)",
@@ -21,12 +21,12 @@ export const profile = {
 };
 
 export const skills = [
-  { group: "Languages", items: ["Python", "JavaScript", "SQL"] },
+  { group: "Languages", items: ["Java", "JavaScript", "SQL"] },
   { group: "Frontend", items: ["React"] },
-  { group: "Backend", items: ["Node.js", "Express.js", "Flask", "FastAPI", "SQLAlchemy"] },
+  { group: "Backend", items: ["Spring Boot", "Hibernate", "Node.js", "Express.js"] },
   { group: "Databases", items: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"] },
   { group: "Cloud & Deployment", items: ["Docker", "Render", "Vercel", "MongoDB Atlas", "Neon"] },
-  { group: "Developer Tools", items: ["Git", "GitHub", "REST API Development", "JWT", "Unit Testing (pytest)"] },
+  { group: "Developer Tools", items: ["Git", "GitHub", "REST API Development", "JWT", "JUnit"] },
   { group: "Core CS", items: ["Data Structures & Algorithms", "OOP", "DBMS"] },
   { group: "Soft Skills", items: ["Team Collaboration", "Communication"] },
 ];
@@ -55,11 +55,11 @@ export const projects = [
     highlights: [
       "Smoothed TF-IDF ranking with a tokenizer that lowercases text and removes stopwords",
       "2-table SQLite schema (documents, inverted_index) with an index on the word column",
-      "4 Flask API endpoints and a web UI; newly added documents are searchable immediately",
+      "4 Spring Boot API endpoints and a web UI; newly added documents are searchable immediately",
       "Seeded with 10 documents; ranked queries return in under 1 ms locally",
       "Deployed live on Render and verified add-document and search in production",
     ],
-    stack: ["Python", "Flask", "SQLite", "TF-IDF"],
+    stack: ["Java", "Spring Boot", "SQLite", "JDBC", "TF-IDF"],
     github: "https://github.com/amankr04082005-beep/mini-search-engine",
     live: "https://mini-search-engine-5k3o.onrender.com",
   },
@@ -67,15 +67,15 @@ export const projects = [
     name: "URL Shortener API",
     period: "Oct 2026",
     description:
-      "A FastAPI service that shortens URLs, redirects short codes, and tracks click statistics, backed by PostgreSQL.",
+      "A Java Spring Boot service that shortens URLs, redirects short codes, and tracks click statistics, backed by PostgreSQL.",
     highlights: [
       "Designed a 2-table schema (urls, clicks) with a unique index on short codes and an indexed foreign key",
       "Click counts use atomic SQL increments to avoid lost updates under concurrent requests",
       "Generated random 6-character base62 codes with collision retry and validated custom aliases with duplicate and reserved-word protection",
-      "Wrote 10 pytest tests on an isolated in-memory database; containerized with Docker",
+      "Wrote automated JUnit tests on an isolated in-memory database; containerized with Docker",
       "Deployed on Render with a Neon PostgreSQL database",
     ],
-    stack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Pydantic", "Docker", "pytest"],
+    stack: ["Java", "Spring Boot", "PostgreSQL", "Spring Data JPA", "Hibernate", "Docker", "JUnit"],
     github: "https://github.com/amankr04082005-beep/url-shortener",
     live: "https://url-shortener-5g04.onrender.com/docs",
   },
@@ -83,7 +83,7 @@ export const projects = [
 
 export const certifications = [
   { name: "Problem Solving (Intermediate)", issuer: "HackerRank, 2026" },
-  { name: "Python with DSA", issuer: "Unstop, 2026" },
+  { name: "Data Structures & Algorithms", issuer: "Unstop, 2026" },
   { name: "GitHub Workflow Mastery", issuer: "2026" },
 ];
 

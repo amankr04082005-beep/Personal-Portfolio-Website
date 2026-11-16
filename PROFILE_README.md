@@ -69,7 +69,7 @@
       <h3>🧠 2. LogIntelligence</h3>
       <p><b>DevOps AI Incident Diagnosis Platform</b></p>
       <p>Transforms raw log dumps into structured incident reports and deterministic operational playbooks for PostgreSQL, Redis, Kafka, and Kubernetes with zero AI hallucinations.</p>
-      <p><code>FastAPI</code> • <code>Python</code> • <code>LangChain</code> • <code>Llama 3</code> • <code>Next.js</code></p>
+      <p><code>Spring Boot</code> • <code>Java</code> • <code>LangChain</code> • <code>Llama 3</code> • <code>Next.js</code></p>
       <p><a href="https://logintelligence-nu.vercel.app/"><b>🚀 Launch Live Application »</b></a></p>
     </td>
   </tr>
@@ -85,7 +85,7 @@
       <h3>🏛️ 4. CivicSim</h3>
       <p><b>AI Civic Transparency Platform (Srujana 2025 Winner)</b></p>
       <p>Achieved 90%+ OCR data extraction accuracy analyzing public grant receipts and cross-verifying entries against data.gov.in APIs for corruption detection.</p>
-      <p><code>Python</code> • <code>FastAPI</code> • <code>Tesseract OCR</code> • <code>Gemini AI</code></p>
+      <p><code>Java</code> • <code>Spring Boot</code> • <code>Tesseract OCR</code> • <code>Gemini AI</code></p>
       <p><a href="https://github.com/Rishabh-afk-beep/Civic-Sim"><b>View Code Repository »</b></a></p>
     </td>
   </tr>
@@ -94,14 +94,14 @@
       <h3>🤖 5. App Intel</h3>
       <p><b>Composio AI App Research & Verification System (100-App Case Study)</b></p>
       <p>Multi-agent AI research pipeline & analytics dashboard across 100 enterprise software apps. Features web discovery, Playwright doc scraping, quote verifier, and zero-wait failover.</p>
-      <p><code>Python</code> • <code>FastAPI</code> • <code>React</code> • <code>Groq AI</code> • <code>Playwright</code></p>
+      <p><code>Java</code> • <code>Spring Boot</code> • <code>React</code> • <code>Groq AI</code> • <code>Playwright</code></p>
       <p><a href="https://github.com/aman-kumar/app-intel"><b>View Code Repository »</b></a></p>
     </td>
     <td width="50%" valign="top">
       <h3>📡 6. Wi-Fi Connectivity Tester</h3>
-      <p><b>Python Wi-Fi & Multi-Layer Network Diagnostic Tool</b></p>
+      <p><b>Java Wi-Fi & Multi-Layer Network Diagnostic Tool</b></p>
       <p>Analyzes Windows WLAN connections, tests gateway ping, DNS resolution, internet reachability & HTTP response times with SQLite latency trend analytics.</p>
-      <p><code>Python</code> • <code>Streamlit</code> • <code>SQLite</code> • <code>Networking</code> • <code>pytest</code></p>
+      <p><code>Java</code> • <code>Spring Boot</code> • <code>SQLite</code> • <code>Networking</code> • <code>JUnit</code></p>
       <p><a href="https://wi-fi-connectivity-tester.onrender.com/"><b>🚀 Launch Live Demo »</b></a> • <a href="https://github.com/aman-kumar/Wi-Fi-Connectivity-Tester"><b>GitHub »</b></a></p>
     </td>
   </tr>
@@ -123,12 +123,12 @@
 <div align="center">
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)

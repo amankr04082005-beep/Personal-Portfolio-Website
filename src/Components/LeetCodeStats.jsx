@@ -68,7 +68,7 @@ export default function LeetCodeStats() {
               DSA & LeetCode Performance
             </h3>
             <p className="text-xs text-[var(--color-section-muted)] mt-0.5">
-              Live algorithmic problem-solving statistics in Java & Python
+              Live algorithmic problem-solving statistics focused on Java
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function LeetCodeStats() {
             {stats.totalSolved}+
           </p>
           <span className="mt-1 inline-block text-[11px] text-[var(--color-body)] font-semibold">
-            Java & Python
+            Primarily Java
           </span>
         </div>
 

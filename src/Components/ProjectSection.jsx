@@ -12,8 +12,8 @@ export default function ProjectSection({ onOpenShare }) {
         selectedCategory === "All" ||
         project.category === selectedCategory ||
         (selectedCategory === "Full-Stack" && project.stack.includes("React") && project.stack.includes("Node.js")) ||
-        (selectedCategory === "Python" && project.stack.includes("Python")) ||
-        (selectedCategory === "Backend" && project.stack.includes("FastAPI"));
+        (selectedCategory === "Java" && project.stack.includes("Java")) ||
+        (selectedCategory === "Backend" && project.category === "Backend");
 
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
@@ -52,7 +52,7 @@ export default function ProjectSection({ onOpenShare }) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="            Search projects or tech (e.g. React, FastAPI)..."
+            placeholder="            Search projects or tech (e.g. React, Spring Boot)..."
             className="w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] py-3 pl-11 pr-10 text-sm text-[var(--color-text)] placeholder-[var(--color-section-muted)] outline-none transition focus:border-emerald-500/50 focus:ring-2 focus:ring-emerald-500/20"
           />
           {searchQuery && (

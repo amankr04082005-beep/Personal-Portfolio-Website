@@ -48,7 +48,7 @@ export default function TerminalModal({ isOpen, onClose, onOpenContact }) {
       case "skills":
         newHistory.push({
           type: "output",
-          text: "SKILLS: Java, Python, JavaScript, React.js, Node.js, Express.js, FastAPI, Docker, AWS, MySQL, MongoDB, LangChain, Ollama, IPFS, Polygon.",
+          text: "SKILLS: Java, Spring Boot, Hibernate, JUnit, JavaScript, React.js, Node.js, Express.js, Docker, AWS, MySQL, MongoDB, LangChain, Ollama, IPFS, Polygon.",
         });
         break;
 
